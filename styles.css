@@ -33,10 +33,23 @@ body, h1, p, form {
     height: 100vh;
 }
 .logo {
+    background-color: rgba(0, 0, 0, 0.473);
+    height: 10rem;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     position: relative;
+    top: 40%;
+}
+.logo img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+}
+.logo h1 {
+    color: white;
+    font-family: 'Visual_Norse_Bold';
 }
 .header h1 {
     font-size: 2em;
