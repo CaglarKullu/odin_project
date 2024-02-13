@@ -1,10 +1,6 @@
 @font-face {
     font-family: 'Visual_Norse_Bold';
-    src: url('./assets/font/Norse-Bold.otf') format('otf'), /* Modern Browsers */
-         url('./assets/font/Norse-Bold.otf') format('otf'), /* Older Browsers */
-         url('./assets/font/Norse-Bold.otf') format('otf'); /* Oldest Browsers */
-    font-weight: normal;
-    font-style: normal;
+    src: url('./assets/font/Norse-Bold.otf');
 }
 
 * {
@@ -49,7 +45,6 @@ body, h1, p, form {
 }
 .logo h1 {
     color: white;
-    font-family: 'Visual_Norse_Bold';
 }
 .header h1 {
     font-size: 2em;
