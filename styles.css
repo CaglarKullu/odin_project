@@ -1,15 +1,43 @@
+@font-face {
+    font-family: 'Visual_Norse_Bold';
+    src: url('./assets/font/Norse-Bold.otf') format('otf'), /* Modern Browsers */
+         url('./assets/font/Norse-Bold.otf') format('otf'), /* Older Browsers */
+         url('./assets/font/Norse-Bold.otf') format('otf'); /* Oldest Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Visual_Norse_Bold';
+}
 body, h1, p, form {
     margin: 0;
     padding: 0;
 }
 
-.signup-container {
-    background: url('assets/side_image.jpg') no-repeat center center;
-    background-size: cover;
-    padding: 50px;
-    font-family: Arial, sans-serif;
+.main_container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
 }
 
+.signup-container {
+    display: flex;
+}
+.side_container {
+    background: url('./assets/side_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 .header h1 {
     font-size: 2em;
     color: white;
