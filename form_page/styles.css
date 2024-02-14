@@ -6,6 +6,7 @@
 * {
     font-family: 'Visual_Norse_Bold';
 }
+
 body, h1, p, form {
     margin: 0;
     padding: 0;
@@ -21,6 +22,7 @@ body, h1, p, form {
 .signup-container {
     display: flex;
 }
+
 .side_container {
     background: url('./assets/side_image.jpg');
     background-size: cover;
@@ -46,6 +48,7 @@ body, h1, p, form {
 .logo h1 {
     color: white;
 }
+
 .header h1 {
     font-size: 2em;
     color: white;
@@ -54,60 +57,4 @@ body, h1, p, form {
 .header p {
     color: white;
     margin-bottom: 1em;
-}
-
-.signup-form {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.form-row {
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.form-row input {
-    flex: 1;
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.form-row input:last-child {
-    margin-right: 0;
-}
-
-.form-footer {
-    text-align: center;
-}
-
-.form-footer button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.form-footer button:hover {
-    background-color: #45a049;
-}
-
-.form-footer p {
-    margin-top: 15px;
-}
-
-form a {
-    color: #3498db;
-}
-
-footer {
-    text-align: center;
-    color: white;
-    margin-top: 50px;
 }
