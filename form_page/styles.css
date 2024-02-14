@@ -5,6 +5,8 @@
 
 * {
     font-family: 'Visual_Norse_Bold';
+    margin: 0;
+    padding: 0;
 }
 
 body, h1, p, form {
@@ -13,10 +15,9 @@ body, h1, p, form {
 }
 
 .main_container {
-    height: 100%;
-    width: 100%;
+    height: 100vh; /* Set height directly to viewport height */
     display: grid;
-    grid-template-columns: 1fr 2fr; 
+    grid-template-columns: 1fr 2fr;
 }
 
 .signup-container {
@@ -24,37 +25,55 @@ body, h1, p, form {
 }
 
 .side_container {
-    background: url('./assets/side_image.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background: url('./assets/side_image.jpg') center/cover no-repeat; /* Combine background properties */
+    height: 100%; /* Change to height: 100%; to fill the parent height */
+    position: relative; /* Add relative positioning */
 }
+
+.side_container footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    color: rgba(255, 255, 255, 0.693);
+    position: absolute;
+    bottom: 3%; 
+    width: 100%; /* Ensure full width of container */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.side_container footer a {
+    color: inherit; /* Inherit color from parent */
+    margin: 0.25em;
+    font-family: inherit /* Inherit font family from parent */;
+}
+
 .logo {
     background-color: rgba(0, 0, 0, 0.473);
     height: 10rem;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     position: relative;
-    top: 40%;
+    top: 20%;
+    font-size: 2.5rem;
 }
+
 .logo img {
     max-width: 90%;
     max-height: 90%;
     object-fit: cover;
 }
+
 .logo h1 {
     color: white;
 }
 
-.header h1 {
-    font-size: 2em;
-    color: white;
-}
-
+.header h1,
 .header p {
     color: white;
-    margin-bottom: 1em;
+    margin: 0;
+}
+
+.header h1 {
+    font-size: 2em;
 }
