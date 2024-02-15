@@ -133,6 +133,19 @@ form {
     border-radius: 4px;
 }
 
+.input_wrapper input:focus {
+    outline: none;
+    border: 2px solid #596D48; 
+}
+
+.input-wrapper input.error {
+    border-color: red;
+}
+
+.input-wrapper input.error:focus {
+    border-color: red;
+}
+
 /* Style the submit button */
 .submit_wrapper {
     width: 100%;
