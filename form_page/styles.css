@@ -138,11 +138,10 @@ form {
     border: 2px solid #596D48; 
 }
 
-.form_grid .error .error-message {
+.input_wrapper .error-message {
     color: red;
-    font-size: 0.875rem; 
+    font-size: 0.5rem; 
     margin-top: 0.25rem; 
-    display: none; 
 }
 
 
@@ -154,9 +153,10 @@ form {
 .submit_wrapper {
     width: 100%;
 }
+
 .submit_wrapper input[class="submit"] {
     padding: 1rem 2rem;
-    margin: 2rem;
+    margin-left: 2rem;
     background-color:#596D48; 
     color: white;
     border: none;
