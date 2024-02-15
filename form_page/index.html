@@ -10,11 +10,11 @@
     <div class="main_container">
         <div class="side_container">
             <div class="logo">
-            <img src="./assets/side_bar_image.png" alt="odin logo">
+                <img src="./assets/side_bar_image.png" alt="odin logo">
                 <h1>ODIN</h1>
             </div>
             <footer>
-                Photo by <a href="https://unsplash.com/@haliewestphoto?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"> Halie West</a> on <a href="https://unsplash.com/photos/green-leaf-plant-in-close-up-photography-25xggax4bSA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"> Unsplash</a> 
+                Photo by <a href="https://unsplash.com/@haliewestphoto?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Halie West</a> on <a href="https://unsplash.com/photos/green-leaf-plant-in-close-up-photography-25xggax4bSA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> 
             </footer>
         </div>
         <div class="signup_side_container">
@@ -22,43 +22,51 @@
                 <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</p>
                 <p>You <em>know</em> you want to.</p>
             </div>
-            <div class="form_field">
+            <div class="form_field" id="signup-field">
                 <h2>Let's do this!</h2>
-                <form class="form_grid">
+                <form class="form_grid" id="signup-form">
                     <div class="input_wrapper">
                         <label for="first_name">FIRST NAME</label>
                         <input type="text" id="first_name" name="first_name">
+                        <div class="error-message" id="first_name_error"></div>
                     </div>
     
                     <div class="input_wrapper">
                         <label for="last_name">LAST NAME</label>
                         <input type="text" id="last_name" name="last_name">
+                        <div class="error-message" id="last_name_error"></div>
                     </div>
     
                     <div class="input_wrapper">
                         <label for="email">EMAIL</label>
                         <input type="email" id="email" name="email">
+                        <div class="error-message" id="email_error"></div>
                     </div>
     
                     <div class="input_wrapper">
                         <label for="phone">PHONE NUMBER</label>
                         <input type="tel" id="phone" name="phone">
+                        <div class="error-message" id="phone_error"></div>
                     </div>  
     
                     <div class="input_wrapper">
                         <label for="password">PASSWORD</label>
                         <input type="password" id="password" name="password">
+                        <div class="error-message" id="password_error"></div>
                     </div>
     
                     <div class="input_wrapper">
                         <label for="confirm_password">CONFIRM PASSWORD</label>
                         <input type="password" id="confirm_password" name="confirm_password">
+                        <div class="error-message" id="confirm_password_error"></div>
                     </div>
                 </form>
-    </div>
-    <div class="submit_wrapper">
-        <input type="submit" value="Create Account">
-        <p>Already have an account? <a href="#">Log in</a></p>
+            </div>
+            <div class="submit_wrapper">
+                <input class="submit" type="button" value="Create Account" id="submit-btn">
+                <p>Already have an account? <a href="#">Log in</a></p>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

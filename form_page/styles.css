@@ -138,19 +138,23 @@ form {
     border: 2px solid #596D48; 
 }
 
-.input-wrapper input.error {
-    border-color: red;
+.form_grid .error .error-message {
+    color: red;
+    font-size: 0.875rem; 
+    margin-top: 0.25rem; 
+    display: none; 
 }
 
-.input-wrapper input.error:focus {
-    border-color: red;
+
+.input_wrapper .error-message.active {
+    display: block; 
 }
 
 /* Style the submit button */
 .submit_wrapper {
     width: 100%;
 }
-.submit_wrapper input[type="submit"] {
+.submit_wrapper input[class="submit"] {
     padding: 1rem 2rem;
     margin: 2rem;
     background-color:#596D48; 
@@ -161,7 +165,6 @@ form {
     margin-top: 1rem; 
     box-shadow: 0.2rem 0.2rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
     min-width: 10rem;
-    
 }
 
 .submit_wrapper p {
