@@ -1,0 +1,111 @@
+/* Base and Dark Mode Styles */
+:root {
+    /* Base colors */
+    --bg-color: #f5f5f5;
+    --primary-color: #596D48;
+    --secondary-color: #f5f5f5;
+    --text-color: #000000;
+    --text-color-light: #ffffff;
+    --border-color: #e0e0e0;
+    --error-color: #ff0000;
+    --success-color: #00ff00;
+    --warning-color: #ffff00;
+    --info-color: #00ffff;
+    --link-color: #0000ff;
+    --link-hover-color: #0000ff;
+    --link-active-color: #ff0000;
+    --link-visited-color: #800080;
+
+    /* Dark mode overrides */
+    --dark-bg-color: #121212;
+    --dark-primary-color: #8AA29E;
+    --dark-secondary-color: #333333;
+    --dark-text-color: #ffffff;
+    --dark-border-color: #444444;
+    --dark-error-color: #D32F2F;
+    --dark-success-color: #4CAF50;
+    --dark-warning-color: #FFEB3B;
+    --dark-info-color: #29B6F6;
+    --dark-link-color: #BBDEFB;
+    --dark-link-hover-color: #82B1FF;
+    --dark-link-active-color: #F44336;
+    --dark-link-visited-color: #B39DDB;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: var(--dark-bg-color);
+        --primary-color: var(--dark-primary-color);
+        --secondary-color: var(--dark-secondary-color);
+        --text-color: var(--dark-text-color);
+        --border-color: var(--dark-border-color);
+        --error-color: var(--dark-error-color);
+        --success-color: var(--dark-success-color);
+        --warning-color: var(--dark-warning-color);
+        --info-color: var(--dark-info-color);
+        --link-color: var(--dark-link-color);
+        --link-hover-color: var(--dark-link-hover-color);
+        --link-active-color: var(--dark-link-active-color);
+        --link-visited-color: var(--dark-link-visited-color);
+    }
+}
+
+/* Reset and Element Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+a:active {
+    color: var(--link-active-color);
+}
+
+a:visited {
+    color: var(--link-visited-color);
+}
+
+/* Utility Classes */
+.border {
+    border: 1px solid var(--border-color);
+}
+
+.text-light {
+    color: var(--text-color-light);
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+/* Feedback Colors */
+.feedback {
+    padding: 0.5em;
+    margin-top: 1em;
+    border-radius: 5px;
+}
+
+.error { background-color: var(--error-color); color: var(--text-color-light); }
+.success { background-color: var(--success-color); color: var(--text-color-light); }
+.warning { background-color: var(--warning-color); color: var(--text-color); }
+.info { background-color: var(--info-color); color: var(--text-color); }
