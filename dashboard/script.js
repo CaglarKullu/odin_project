@@ -35,28 +35,6 @@ const projects = [
   
   document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.querySelector('.projects');
-    const  hamburgerMenu = document.getElementById('menu');
-    const shareSection = document.querySelector('share-section');
-  
-    // Function to dynamically create project cards
-    projects.forEach(project => {
-      const projectCard = document.createElement('div');
-      projectCard.classList.add('project-card');
-  
-      projectCard.innerHTML = `
-        <h3>${project.name}</h3>
-        <p>${project.description}</p>
-        <br/>
-        <div class="project-actions">
-          <span class="material-icons" data-id="${project.id}" data-action="share">share</span>
-          <span class="material-icons" data-id="${project.id}" data-action="delete">delete</span>
-          <span class="material-icons" data-id="${project.id}" data-action="favorite">favorite_border</span>
-        </div>
-      `;
-  
-      projectsContainer.appendChild(projectCard);
-    });
-  
     // Event delegation for project actions
     projectsContainer.addEventListener('click', function(event) {
       if (event.target.classList.contains('material-icons')) {
@@ -119,3 +97,38 @@ const projects = [
     }
     event.stopPropagation();
   });
+
+  function displayProjects(projectsToDisplay) {
+    const projectsContainer = document.getElementById('projects');
+    // Clear out current content
+    projectsContainer.innerHTML = '';
+  
+    // Add new filtered content
+    projectsToDisplay.forEach(project => {
+      const projectCard = document.createElement('div');
+      projectCard.className = 'project-card';
+      projectCard.innerHTML = `
+      <h3>${project.name}</h3>
+      <p>${project.description}</p>
+      <br/>
+      <div class="project-actions">
+        <span class="material-icons" data-id="${project.id}" data-action="share">share</span>
+        <span class="material-icons" data-id="${project.id}" data-action="delete">delete</span>
+        <span class="material-icons" data-id="${project.id}" data-action="favorite">favorite_border</span>
+      </div>
+      `;
+      projectsContainer.appendChild(projectCard);
+    });
+  }
+
+  displayProjects(projects);
+  function filterProjects() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const filteredProjects = projects.filter(project => 
+      project.name.toLowerCase().includes(searchTerm) ||
+      project.description.toLowerCase().includes(searchTerm)
+    );
+    displayProjects(filteredProjects);
+  }
+  
+  document.getElementById('search-input').addEventListener('input', filterProjects);

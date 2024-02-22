@@ -170,7 +170,7 @@ a:visited {
 display: flex;
 height: 100%;
 width: 100vw;
-
+overflow-x: hidden;
 }
 
 .sidebar {
@@ -343,6 +343,10 @@ width: 100vw;
     padding: 0;
   }
 
+  .announcement-trending-container {
+    display: flex;
+    flex-direction: column;
+  }
   .announcements, .trending {
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -351,7 +355,7 @@ width: 100vw;
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
-    width: 33%;
+    width: 80%;
     margin-left:auto;
     margin-right:auto;
   }
@@ -391,8 +395,8 @@ width: 100vw;
 
     #menu {
         display: block;
-        position: absolute;
+        position: relative;
         top: 20%;
-        right: 0%;
+        right: 2%;
     }
 }
