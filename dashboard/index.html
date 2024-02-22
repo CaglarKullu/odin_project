@@ -19,7 +19,7 @@
        <div class="content">
         <div class="navbar">
             <div class="navbar-row-1">
-                <div>Search</div>
+                <input type="text" id="search-input" placeholder="Search projects...">
                 <div class="row">
                     <div>bell</div>
                     <div>user logo</div>
@@ -46,45 +46,7 @@
         </div>
         <div class="user-area">
             <section class="projects">
-                <div class="project-card">
-                  <h3>Super Cool Project</h3>
-                  <p>Sed tempus sit laoreet scelerisque. Suspendisse faucibus nibh erat, id facilisis felis accumsan nec.</p>
-                  <div class="project-actions">
-                    <span class="material-icons">share</span>
-                    <span class="material-icons">delete</span>
-                    <span class="material-icons">favorite_border</span>
-                  </div>
-                </div>
-                <div class="project-card">
-                    <h3>Super Cool Project</h3>
-                    <p>Sed tempus sit laoreet scelerisque. Suspendisse faucibus nibh erat, id facilisis felis accumsan nec.</p>
-                    <div class="project-actions">
-                      <!-- Icons or buttons for actions like edit, delete, etc. -->
-                    </div>
-                  </div>
-                  <div class="project-card">
-                    <h3>Super Cool Project</h3>
-                    <p>Sed tempus sit laoreet scelerisque. Suspendisse faucibus nibh erat, id facilisis felis accumsan nec.</p>
-                    <div class="project-actions">
-                      <!-- Icons or buttons for actions like edit, delete, etc. -->
-                    </div>
-                  </div>
-                  <div class="project-card">
-                    <h3>Super Cool Project</h3>
-                    <p>Sed tempus sit laoreet scelerisque. Suspendisse faucibus nibh erat, id facilisis felis accumsan nec.</p>
-                    <div class="project-actions">
-                      <!-- Icons or buttons for actions like edit, delete, etc. -->
-                    </div>
-                  </div>
-                  <div class="project-card">
-                    <h3>Super Cool Project</h3>
-                    <p>Sed tempus sit laoreet scelerisque. Suspendisse faucibus nibh erat, id facilisis felis accumsan nec.</p>
-                    <div class="project-actions">
-                      <!-- Icons or buttons for actions like edit, delete, etc. -->
-                    </div>
-                  </div>
-                  
-                <!-- Repeat for other projects -->
+                <!-- Script to create project cards -->
               </section>
               <aside class="announcements">
                 <h3>Announcements</h3>
@@ -106,70 +68,6 @@
         </div>
        </div>
     </div>
-    <script src="script.js">
-        const projects = [
-  {
-    name: "Super Cool Project",
-    description: "Sed tempus sit laoreet scelerisque. Suspendisse faucibus nibh erat, id facilisis felis accumsan nec.",
-    id: 1
-  },
-  {
-    name: "Impossible App",
-    description: "In hac habitasse platea dictumst. Vivamus dictum rutrum arcu, a placerat velit sagittis id.",
-    id: 2
-  },
-  {
-    name: "Ad Blocker",
-    description: "Quisque eget rutrum nisl. Nam augue justo, cursus vitae metus vel, pharetra hendrerit felis.",
-    id: 3
-  },
-  // ... other projects
-];
-document.addEventListener('DOMContentLoaded', () => {
-    const projectsContainer = document.querySelector('.projects'); // The container where project cards will be added
-
-    projects.forEach(project => {
-      const projectCard = document.createElement('div');
-      projectCard.classList.add('project-card');
-
-      projectCard.innerHTML = `
-        <h3>${project.name}</h3>
-        <p>${project.description}</p>
-        <div class="project-actions">
-          <span class="material-icons" onclick="shareProject(${project.id})">share</span>
-          <span class="material-icons" onclick="deleteProject(${project.id})">delete</span>
-          <span class="material-icons" onclick="toggleFavorite(${project.id})">favorite_border</span>
-        </div>
-      `;
-
-      projectsContainer.appendChild(projectCard);
-    });
-  });
-
-  function shareProject(projectId) {
-    console.log('Sharing project:', projectId);
-    // Add your share logic here
-  }
-
-  function deleteProject(projectId) {
-    console.log('Deleting project:', projectId);
-    // Add your delete logic here
-  }
-
-  function toggleFavorite(projectId) {
-    console.log('Toggling favorite on project:', projectId);
-    // Add your favorite toggle logic here
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    const favoriteIcons = document.querySelectorAll('.material-icons.favorite_border');
-
-    favoriteIcons.forEach(icon => {
-      icon.addEventListener('click', function() {
-        // Toggle the favorite state
-        icon.textContent = icon.textContent === 'favorite_border' ? 'favorite' : 'favorite_border';
-      });
-    });
-  });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
