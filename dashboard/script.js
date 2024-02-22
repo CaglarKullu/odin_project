@@ -34,7 +34,9 @@ const projects = [
   ];
   
   document.addEventListener('DOMContentLoaded', () => {
-    const projectsContainer = document.querySelector('.projects'); // The container where project cards will be added
+    const projectsContainer = document.querySelector('.projects');
+    const  hamburgerMenu = document.getElementById('menu');
+    const shareSection = document.querySelector('share-section');
   
     // Function to dynamically create project cards
     projects.forEach(project => {
@@ -74,6 +76,7 @@ const projects = [
         }
       }
     });
+
   });
   
   function shareProject(projectId) {
@@ -93,3 +96,26 @@ const projects = [
     // Implement favorite toggle logic here
   }
   
+
+  function toggleShareSection() {
+    var shareSection = document.getElementById('share-section');
+  
+    if (shareSection.style.display === 'block') {
+      shareSection.style.display = 'none';
+    } else {
+      shareSection.style.display = 'block';
+    }
+
+  }
+
+  // Attach the event listener to the menu button
+  window.addEventListener('click', function(event) {
+    var shareSection = document.getElementById('share-section');
+    shareSection.classList.toggle('show');
+    
+    // Hide the share section if the user clicks outside of it
+    if (event.target.id !== 'menu' && shareSection.style.display === 'block') {
+      shareSection.style.display = 'none';
+    }
+    event.stopPropagation();
+  });
