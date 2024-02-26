@@ -33,7 +33,48 @@ const projects = [
     // Add more projects as needed
   ];
   
-  document.addEventListener('DOMContentLoaded', () => {
+// dummy user info
+
+
+class User {
+  constructor(id, name, lastName, email, phone, password) {
+    this.id = id;
+    this.name = name;
+    this.lastName = lastName;
+    this.email = email;
+    this.phone = phone;
+    this.password = password;
+  }
+  createUser(id, name, lastName, email, phone, password) {
+    // Implement user creation logic here
+    return new User(id, name, lastName, email, phone, password);
+  };
+}
+const user = new User(1, "John", "Doe", "3eG2x@example.com", "123-456-7890", "password");
+  function displayUserName() {
+    const elements = document.getElementsByClassName('user');
+    elements[0].innerHTML = ` 
+    <h3>${user.name} ${user.lastName}</h3>
+    `;
+    elements[1].innerHTML = `
+    <h3>${user.name} ${user.lastName}</h3>
+    `;
+  }
+  
+
+// Event listener for display projects
+document.addEventListener('DOMContentLoaded', () => {
+    displayProjects(projects);
+})
+
+// Event listener for search input
+document.getElementById('search-input').addEventListener('input', filterProjects);
+
+// Event listener for user name
+document.addEventListener('DOMContentLoaded', displayUserName);
+
+// Event listener for project actions
+document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.querySelector('.projects');
     // Event delegation for project actions
     projectsContainer.addEventListener('click', function(event) {
@@ -54,9 +95,8 @@ const projects = [
         }
       }
     });
-
-  });
   
+  });
   function shareProject(projectId) {
     console.log('Sharing project:', projectId);
     // Implement share logic here
@@ -102,7 +142,7 @@ const projects = [
 function displayProjects(projectsToDisplay) {
   const projectsContainer = document.getElementById('projects');
   // Clear out current content
-  projectsContainer.innerHTML = '';
+ projectsContainer.innerHTML = '';
 
   if (projectsToDisplay.length === 0) {
     // Show a 'no projects found' message
@@ -118,7 +158,7 @@ function displayProjects(projectsToDisplay) {
       projectCard.innerHTML = `
         <h3>${project.name}</h3>
         <p>${project.description}</p>
-        <!-- Include your icons or other elements here -->
+
       `;
       projectsContainer.appendChild(projectCard);
     });
@@ -135,5 +175,9 @@ function filterProjects() {
   displayProjects(filteredProjects);
 }
 
-// Event listener for search input
-document.getElementById('search-input').addEventListener('input', filterProjects);
+
+
+
+
+
+
