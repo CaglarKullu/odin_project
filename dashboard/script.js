@@ -105,6 +105,15 @@ const projects = [
   
     // Add new filtered content
     projectsToDisplay.forEach(project => {
+      if(projectsToDisplay.length === 0) {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card';
+        projectCard.innerHTML = `
+        <h3>No Projects Found By Search</h3>
+        `;
+        projectsContainer.appendChild(projectCard);
+      }
+      // Create project card
       const projectCard = document.createElement('div');
       projectCard.className = 'project-card';
       projectCard.innerHTML = `
