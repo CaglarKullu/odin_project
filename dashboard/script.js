@@ -98,46 +98,42 @@ const projects = [
     event.stopPropagation();
   });
 
-  function displayProjects(projectsToDisplay) {
-    const projectsContainer = document.getElementById('projects');
-    // Clear out current content
-    projectsContainer.innerHTML = '';
-  
+// Function to display projects or a 'no projects found' message
+function displayProjects(projectsToDisplay) {
+  const projectsContainer = document.getElementById('projects');
+  // Clear out current content
+  projectsContainer.innerHTML = '';
+
+  if (projectsToDisplay.length === 0) {
+    // Show a 'no projects found' message
+    const noProjectsMsg = document.createElement('div');
+    noProjectsMsg.className = 'no-projects-msg';
+    noProjectsMsg.textContent = 'No projects found.';
+    projectsContainer.appendChild(noProjectsMsg);
+  } else {
     // Add new filtered content
     projectsToDisplay.forEach(project => {
-      if(projectsToDisplay.length === 0) {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.innerHTML = `
-        <h3>No Projects Found By Search</h3>
-        `;
-        projectsContainer.appendChild(projectCard);
-      }
-      // Create project card
       const projectCard = document.createElement('div');
       projectCard.className = 'project-card';
       projectCard.innerHTML = `
-      <h3>${project.name}</h3>
-      <p>${project.description}</p>
-      <br/>
-      <div class="project-actions">
-        <span class="material-icons" data-id="${project.id}" data-action="share">share</span>
-        <span class="material-icons" data-id="${project.id}" data-action="delete">delete</span>
-        <span class="material-icons" data-id="${project.id}" data-action="favorite">favorite_border</span>
-      </div>
+        <h3>${project.name}</h3>
+        <p>${project.description}</p>
+        <!-- Include your icons or other elements here -->
       `;
       projectsContainer.appendChild(projectCard);
     });
   }
+}
 
-  displayProjects(projects);
-  function filterProjects() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const filteredProjects = projects.filter(project => 
-      project.name.toLowerCase().includes(searchTerm) ||
-      project.description.toLowerCase().includes(searchTerm)
-    );
-    displayProjects(filteredProjects);
-  }
-  
-  document.getElementById('search-input').addEventListener('input', filterProjects);
+// Function to filter projects
+function filterProjects() {
+  const searchTerm = document.getElementById('search-input').value.toLowerCase();
+  const filteredProjects = projects.filter(project =>
+    project.name.toLowerCase().includes(searchTerm) ||
+    project.description.toLowerCase().includes(searchTerm)
+  );
+  displayProjects(filteredProjects);
+}
+
+// Event listener for search input
+document.getElementById('search-input').addEventListener('input', filterProjects);

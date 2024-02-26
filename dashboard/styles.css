@@ -237,6 +237,11 @@ overflow-x: hidden;
     border-color: var(--secondary-color);
   }
 
+  .no-projects-msg {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+  }
 .profile-section-one {
     display: flex;
     flex-direction: row;
