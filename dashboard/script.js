@@ -59,6 +59,9 @@ const user = new User(1, "John", "Doe", "3eG2x@example.com", "123-456-7890", "pa
     elements[1].innerHTML = `
     <h3>${user.name} ${user.lastName}</h3>
     `;
+    elements[2].innerHTML = `
+    <div>@${user.name}${user.lastName}<div>
+    `;
   }
   
 

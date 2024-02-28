@@ -11,12 +11,24 @@
 </head>
 <body>
     <div class="dashboard">
-       <div class="sidebar">
+       <aside class="sidebar">
         <div class="row">
             <img src="./assets/view-dashboard.svg" alt="dashboard image" class="dashboard-image"> 
             <div class="font-xl">Dashboard</div>
+            <nav class="sidebar-nav">
+                <ul>
+                  <li class="nav-item"><span class="material-icons">person_outline</span> Profile</li>
+                  <li class="nav-item"><span class="material-icons">message</span> Messages</li>
+                  <li class="nav-item"><span class="material-icons">history</span> History</li>
+                  <li class="nav-item"><span class="material-icons">task</span> Tasks</li>
+                  <li class="nav-item"><span class="material-icons">group</span> Communities</li>
+                  <li class="nav-item"><span class="material-icons">settings</span> Settings</li>
+                  <li class="nav-item"><span class="material-icons">support</span> Support</li>
+                  <li class="nav-item"><span class="material-icons">privacy_tip</span> Privacy</li>
+                </ul>
+              </nav>
         </div>
-       </div>
+       </aside>
        <div class="content">
         <div class="navbar">
             <div class="navbar-row-1">
@@ -54,18 +66,30 @@
               </section>
               <div class="announcement-trending-container">
                 <aside class="announcements">
-                    <h3>Announcements</h3>
                     <div class="announcement-item">
-                      <h4>Site Maintenance</h4>
-                      <p>We'll be performing scheduled maintenance this weekend. The site may be temporarily unavailable.</p>
-                    </div>
+                        <h4>Site Maintenance</h4>
+                        <p>We'll be performing scheduled maintenance this weekend. The site may be temporarily unavailable.</p>
+                      </div>
+                      <div class="announcement-item">
+                        <h4>Feature Update</h4>
+                        <p>New features will be added to our service next week. Stay tuned for an improved experience!</p>
+                      </div>
+                      <div class="announcement-item">
+                        <h4>Community Meetup</h4>
+                        <p>Join us for our annual community meetup on the 30th of this month. We look forward to seeing you!</p>
+                      </div>
                     <!-- Repeat for other announcements -->
                 </aside>
                     <aside class="trending">
                         <h3>Trending</h3>
+                        <h3>Trending</h3>
                         <div class="trending-item">
                           <span class="user">@username</span>
                           <p>World Peace Builder</p>
+                        </div>
+                        <div class="trending-item">
+                          <span class="user">@anotheruser</span>
+                          <p>Innovative Eco Solutions</p>
                         </div>
                         <!-- Repeat for other trending topics -->
                       </aside>
