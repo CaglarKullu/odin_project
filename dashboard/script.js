@@ -63,9 +63,7 @@ const user = new User(1, "John", "Doe", "3eG2x@example.com", "123-456-7890", "pa
   
 
 // Event listener for display projects
-document.addEventListener('DOMContentLoaded', () => {
-    displayProjects(projects);
-})
+document.addEventListener('DOMContentLoaded', displayProjects(projects) );
 
 // Event listener for search input
 document.getElementById('search-input').addEventListener('input', filterProjects);
@@ -75,15 +73,16 @@ document.addEventListener('DOMContentLoaded', displayUserName);
 
 // Event listener for project actions
 document.addEventListener('DOMContentLoaded', () => {
+
     const projectsContainer = document.querySelector('.projects');
     // Event delegation for project actions
     projectsContainer.addEventListener('click', function(event) {
       if (event.target.classList.contains('material-icons')) {
         const action = event.target.getAttribute('data-action');
         const projectId = event.target.getAttribute('data-id');
-  
         switch (action) {
           case 'share':
+            console.log('button pressed');
             shareProject(projectId);
             break;
           case 'delete':
@@ -95,8 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  
   });
+
+
   function shareProject(projectId) {
     console.log('Sharing project:', projectId);
     // Implement share logic here
@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isFavorite = icon.textContent === 'favorite';
     icon.textContent = isFavorite ? 'favorite_border' : 'favorite';
     console.log('Toggling favorite on project:', icon.getAttribute('data-id'));
-    // Implement favorite toggle logic here
   }
   
 
@@ -142,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function displayProjects(projectsToDisplay) {
   const projectsContainer = document.getElementById('projects');
   // Clear out current content
- projectsContainer.innerHTML = '';
+  projectsContainer.innerHTML = '';
 
   if (projectsToDisplay.length === 0) {
     // Show a 'no projects found' message
@@ -158,7 +157,11 @@ function displayProjects(projectsToDisplay) {
       projectCard.innerHTML = `
         <h3>${project.name}</h3>
         <p>${project.description}</p>
-
+        <div class="project-actions">
+          <span class="material-icons" data-action="share" data-id="${project.id}">share</span>
+          <span class="material-icons" data-action="delete" data-id="${project.id}">delete</span>
+          <span class="material-icons" data-action="favorite" data-id="${project.id}">favorite_border</span>
+        </div>
       `;
       projectsContainer.appendChild(projectCard);
     });
