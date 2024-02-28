@@ -383,7 +383,7 @@ overflow-x: hidden;
   
   .sidebar-nav .nav-item {
     padding: 10px;
-    color: #333; /* Adjust text color as needed */
+    color: var(--text-color-light);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -394,7 +394,7 @@ overflow-x: hidden;
   }
   
   .sidebar-nav .nav-item:hover {
-    background-color: #f4f4f4; /* Adjust hover background color as needed */
+    background-color: var(--dark-success-color); /* Adjust hover background color as needed */
   }
   
   .sidebar-nav .nav-item.active {
