@@ -432,8 +432,8 @@ overflow-x: hidden;
 
     #menu {
         display: block;
-        position: relative;
+        position: absolute;
         top: 20%;
-        right: 2%;
+        right: 5%;
     }
 }
