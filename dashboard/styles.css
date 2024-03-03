@@ -51,6 +51,10 @@
         --link-active-color: var(--dark-link-active-color);
         --link-visited-color: var(--dark-link-visited-color);
     }
+
+    .project-card{
+        color: var(--dark-secondary-color);
+    }
 }
 
 /* Reset and Element Styles */
