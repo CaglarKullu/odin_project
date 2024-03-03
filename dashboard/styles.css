@@ -55,6 +55,10 @@
     .project-card{
         color: var(--dark-secondary-color);
     }
+
+    .announcement-trending-container{
+        color: var(--dark-secondary-color);
+    }
 }
 
 /* Reset and Element Styles */
