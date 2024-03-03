@@ -56,7 +56,10 @@
         color: var(--dark-secondary-color);
     }
 
-    .announcement-item .trending-item{
+    .announcements{
+        color: var(--dark-secondary-color);
+    }
+    .trending{
         color: var(--dark-secondary-color);
     }
 }
