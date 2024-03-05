@@ -1,0 +1,85 @@
+/* Dark theme */
+:root {
+    --main-bg-color: #000a3a; /* Main background color */
+    --main-text-color: #ffffff; /* Main text color */
+    --accent-color: #1976D2; /* Accent color (dark blue) */
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Light theme */
+  .theme-light {
+    --main-bg-color: #ffffff; /* Main background color */
+    --main-text-color: #000000; /* Main text color */
+    --accent-color: #1976D2; /* Accent color (dark blue) */
+  }
+  
+  /* Body styles */
+  body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    font-size: 16px; /* Base font size */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Example usage of accent color */
+  button {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 0.625rem 1.25rem; /* Equivalent to 10px 20px */
+    border-radius: 0.3125rem; /* Equivalent to 5px */
+    cursor: pointer;
+  }
+  
+  /* Example usage of accent color */
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+  }
+  
+  /* Example usage of accent color */
+  a:hover {
+    color: #ffffff;
+    background-color: var(--accent-color);
+    padding: 0.3125rem 0.625rem; /* Equivalent to 5px 10px */
+    border-radius: 0.3125rem; /* Equivalent to 5px */
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 
+    8px 8px 16px rgba(55, 84, 170, 0.15), /* Soft shadow */
+    10px 10px 16px rgba(255, 255, 255, 0.7); /* Highlight */
+
+  }
+  
+  /* Media query for preferring dark theme */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --main-bg-color: #000a3a; /* Dark mode background color */
+      --main-text-color: #ffffff; /* Dark mode text color */
+    }
+    .nav {
+        box-shadow: 
+        8px 8px 16px rgba(42, 41, 41, 0.627), /* Soft shadow for dark theme */
+        8px 8px 16px rgba(117, 116, 116, 0.607); /* Highlight for dark theme */
+      background-color: rgb(0, 0, 81); /* Darker background color for better visibility */
+      }
+  }
+  
+  /* Media query for preferring light theme */
+  @media (prefers-color-scheme: light) {
+    :root {
+      --main-bg-color: #ffffff; /* Light mode background color */
+      --main-text-color: #000000; /* Light mode text color */
+    }
+  }
