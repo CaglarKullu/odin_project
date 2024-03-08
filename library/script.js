@@ -1,6 +1,4 @@
-const myLibrary = {
-    
-}
+const myLibrary = []
 
 class Book {
     constructor(title, author, pages, read) {
@@ -9,16 +7,10 @@ class Book {
         this.pages = pages;
         this.read = read;
     }
-
-    // This static method is no longer needed as we can directly use the constructor
 };
 
 // Refactor the addBookToLibrary method to be a static method that takes a book instance
 Book.addBookToLibrary = function(book) {
-    if (!Array.isArray(myLibrary)) {
-        console.error('myLibrary is not an array.');
-        return;
-    }
     myLibrary.push(book);
 };
 
@@ -28,8 +20,13 @@ Book.newBook = function(title, author, pages, read) {
 }
 
 // function to add a book to the library
-function addBookToLibrary(title, author, pages, read) {
+function addNewBookToLibrary(title, author, pages, read) {
     const newBook = Book.newBook(title, author, pages, read);
-    newBook.addBookToLibrary();
+    Book.addBookToLibrary(newBook);
 };
 
+addNewBookToLibrary('title', 'author', 'pages', 'read');
+
+addNewBookToLibrary('title', 'author', 'pages', 'read');
+
+console.log(myLibrary);
