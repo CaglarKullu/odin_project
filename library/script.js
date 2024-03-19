@@ -1,128 +1,130 @@
-let myLibrary = []
+// data and util
+
+let myLibrary = [];
 
 class Book {
-    constructor(id,title, author, pages, read) {
+    constructor(id, title, author, pages, read) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.read = read;
     }
-};
 
-// Refactor the addBookToLibrary method to be a static method that takes a book instance
-Book.addBookToLibrary = function(book) {
-    myLibrary.push(book);
-};
-
-// This static method is no longer needed as we can directly use the constructor
-Book.newBook = function(title, author, pages, read) {
-    return new Book(title, author, pages, read);
+    static addBookToLibrary(book) {
+        myLibrary.push(book);
+    }
 }
 
-// function to add a book to the library
-function addNewBookToLibrary(title, author, pages, read) {
-    const newBook = Book.newBook(title, author, pages, read);
+function addNewBookToLibrary(id, title, author, pages, read) {
+    const newBook = new Book(id, title, author, pages, read);
     Book.addBookToLibrary(newBook);
-};
-
-addNewBookToLibrary(1,'title', 'author', 'pages', 'read');
-
-addNewBookToLibrary(2,'title', 'author', 'pages', 'read');
-
-console.log(myLibrary);
-
-// DOM manipulation functions 
-function addBookToLibrary() {
-  const library = document.getElementById('library'); 
-  myLibrary.forEach(book => {
-    console.log('creating new book');
-    const bookElement = document.createElement('div'); 
-    bookElement.innerText = book.title; 
-    library.appendChild(bookElement); 
-  })
 }
 
 function deleteBookFromLibrary(bookId) {
-  // delete book from library logic
-  newLibrary = myLibrary.filter(book => book.id !== bookId);
-  myLibrary = newLibrary;
+    myLibrary = myLibrary.filter(book => book.id !== bookId);
 }
 
-//toggle read status
-function toggleReadStatus(book) {
-    book.read = !book.read;
+function toggleReadStatus(bookId) {
+    const book = myLibrary.find(book => book.id === bookId);
+    if (book) book.read = !book.read;
 }
 
+// DOM Manipulation
 function showAllBooksInLibrary() {
-  const library = document.getElementById('library'); // select the library element
-  library.innerHTML = ''; // clear the library before showing all books
+  const library = document.getElementById('library');
+  library.innerHTML = ''; // Clear the library before showing all books
 
   myLibrary.forEach(book => {
-    const bookElement = document.createElement('div'); // create a new div for each book
-    bookElement.innerText = book.title; // set the text to the book's title
-    library.appendChild(bookElement); // append the new div to the library
+      const bookElement = document.createElement('div');
+      bookElement.classList.add('book');
+
+      // Title
+      const titleElement = document.createElement('h3');
+      titleElement.innerText = `Title: ${book.title}`;
+      bookElement.appendChild(titleElement);
+
+      // Author
+      const authorElement = document.createElement('p');
+      authorElement.innerText = `Author: ${book.author}`;
+      bookElement.appendChild(authorElement);
+
+      // Pages
+      const pagesElement = document.createElement('p');
+      pagesElement.innerText = `Pages: ${book.pages}`;
+      bookElement.appendChild(pagesElement);
+
+      // Read status
+      const readElement = document.createElement('p');
+      readElement.innerText = `Read: ${book.read ? 'Yes' : 'No'}`;
+      bookElement.appendChild(readElement);
+
+      // Optional: Add a toggle read status button
+      const toggleReadBtn = document.createElement('button');
+      toggleReadBtn.innerText = 'Toggle Read Status';
+      toggleReadBtn.addEventListener('click', () => {
+          toggleReadStatus(book.id);
+          showAllBooksInLibrary(); // Refresh the library display
+      });
+      bookElement.appendChild(toggleReadBtn);
+
+      // Optional: Add a delete book button
+      const deleteBtn = document.createElement('button');
+      deleteBtn.innerText = 'Delete';
+      deleteBtn.addEventListener('click', () => {
+          deleteBookFromLibrary(book.id);
+          showAllBooksInLibrary(); // Refresh the library display
+      });
+      bookElement.appendChild(deleteBtn);
+
+      library.appendChild(bookElement);
   });
 }
 
-function showUnreadBooksOnly() {
-  // show unread books only logic
-
+function showPopup() {
+  document.getElementById("popup").style.display = "block";
 }
 
-function showReadBooksOnly() {
-  // show read books only logic
-
+function hidePopup() {
+  document.getElementById("popup").style.display = "none";
 }
 
-function clearLibrary() {
-  // clear library logic
+function addBookFromPopup() {
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = false; // Assuming new books are unread by default
+
+  // Use the library length as a simple ID generator
+  const newBook = new Book(myLibrary.length + 1, title, author, pages, read);
+  Book.addBookToLibrary(newBook);
+
+  // Clear input fields and hide the popup
+  document.getElementById("title").value = "";
+  document.getElementById("author").value = "";
+  document.getElementById("pages").value = "";
+  hidePopup();
+
+  // Refresh the displayed books
+  showAllBooksInLibrary();
 }
 
-// DOM event listeners
+// event listeners
+
 document.addEventListener('DOMContentLoaded', () => {
-    // event listener for show all books
-    showAllBooksInLibrary();
-    deleteBookFromLibrary(2);
-    const booksContainer = document.querySelector('.books');
-    booksContainer.addEventListener('click', function(event) {
-        if (event.target.classList.contains('material-icons')) {
-            const action = event.target.getAttribute('data-action');
-            const bookId = event.target.getAttribute('data-id');
-            switch (action) {
-                case 'share':
-                  console.log('button pressed');
-                  shareProject(bookId);
-                  break;
-                case 'delete':
-                  deleteProject(bookId);
-                  break;
-                case 'favorite':
-                    toggleReadStatus(event.target);
-                  break;
-              }
-            
-        }
-    })
-    // event listener for add book
-    const addBookBtn = document.getElementById('add-book-btn');
-    addBookBtn.addEventListener('click', () => {
-        addBookToLibrary();
-    });
+  // Example of setting up event listeners for adding books and other actions
+  const addBookBtn = document.getElementById('add-book-btn');
+  if (addBookBtn) {
+      addBookBtn.addEventListener('click', showPopup);
+  }
 
-    // event listener for delete book
-    const deleteBookBtn = document.getElementById('delete-book-btn');
-    deleteBookBtn.addEventListener('click', () => {
-        deleteBookFromLibrary();
-    });
+  const addBookForm = document.getElementById('add-book-form');
+  if (addBookForm) {
+      addBookForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          addBookFromPopup();
+      });
+  }
 
-    // event listener for mark as read
-    const markAsReadBtn = document.getElementById('mark-as-read-btn');
-
+  showAllBooksInLibrary();
 });
-
-// event listener for add book
-document.addEventListener('DOMContentLoaded', () => {
-
-})
-

@@ -10,8 +10,22 @@
     <div id="nav" class="nav">
         <h1>Library</h1>
     </div>
-    <div>
-        <div id="library"></div>
+    <div class="container">
+        <div id="library">
+        </div>
+        <button onclick="showPopup()">Add Book</button>
+        <div id="popup">
+            <h2>Add Book</h2>
+            <div>Please add your Book</div>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title"><br>
+            <label for="author">Author:</label><br>
+            <input type="text" id="author"><br>
+            <label for="pages">Pages:</label><br>
+            <input type="number" id="pages"><br><br>
+            <button onclick="addBookFromPopup()">Add</button>
+            <button onclick="hidePopup()">Cancel</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

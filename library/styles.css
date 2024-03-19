@@ -27,6 +27,9 @@
   
   /* Example usage of accent color */
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--accent-color);
     color: #ffffff;
     border: none;
@@ -82,4 +85,69 @@
       --main-bg-color: #ffffff; /* Light mode background color */
       --main-text-color: #000000; /* Light mode text color */
     }
+  } 
+
+ #popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 2px solid black;
+    z-index: 9999;
+    color: var(--accent-color);
+  }
+  #library  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .book {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    width: 90%;
+    max-width: 600px; /* Adjust this value based on your design needs */
+  }
+  
+  .book h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+  }
+  
+  .book p {
+    margin: 5px 0;
+  }
+  
+  .book button {
+    margin-top: 10px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+  }
+  
+  .book:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .book button:hover {
+    background-color: darken(var(--accent-color), 10%);
   }
