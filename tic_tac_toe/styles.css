@@ -1,35 +1,110 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: Arial, sans-serif;
+    background-color: #e9baba;
+    font-family: 'Roboto', sans-serif;
 }
 
 #game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .row {
     display: flex;
+    margin: 5px 5px 5px 5px;
 }
 
 .cell {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #333;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cell:hover {
+    background-color: #f4f4f4;
 }
 
 #restart-button {
-    margin-top: 20px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 4px;
     padding: 10px 20px;
+    margin-top: 20px;
     font-size: 1em;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
+
+#restart-button:hover {
+    background-color: #ff6b81;
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score h2 {
+    margin: 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.score span {
+    font-size: 2em;
+    color: #333;
+}
+
+@keyframes popIn {
+    from {
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .cell:not(:empty) {
+    animation: popIn 0.5s ease-out;
+  }
+
+  @keyframes highlightWin {
+    from {
+      background-color: transparent;
+    }
+    to {
+      background-color: yellow; /* Choose a color that stands out */
+    }
+  }
+  
+  .win-highlight {
+    animation: highlightWin 2s ease-out;
+    background-color: yellow; /* Ensure it remains highlighted after animation */
+  }

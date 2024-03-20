@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="scoreboard">
+        <div class="score" id="x-score">
+            <h2>X Wins:</h2>
+            <span>0</span>
+        </div>
+        <div class="score" id="o-score">
+            <h2>O Wins:</h2>
+            <span>0</span>
+        </div>
+    </div>
     <div id="game-container">
         <div class="row">
             <div class="cell" data-row="0" data-col="0"></div>
@@ -24,6 +34,12 @@
             <div class="cell" data-row="2" data-col="2"></div>
         </div>
         <button id="restart-button">Restart Game</button>
+        <br/>
+        <button id="new-game-button">New Game</button>
+        <br/>
+        <label for="toggle-ai-mode">AI Mode:</label>
+        <input type="checkbox" id="toggle-ai-mode" name="toggle-ai-mode">
+
     </div>
     
     <script src="script.js"></script>
