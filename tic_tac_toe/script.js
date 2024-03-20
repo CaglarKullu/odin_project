@@ -99,6 +99,7 @@ class TicTacToe {
             const col = parseInt(cell.getAttribute('data-col'));
             if (!game.board[row][col] && !game.gameOver) {
                 game.makeMove(row, col);
+                game.currentPlayer = game.currentPlayer === 'X' ? 'O' : 'X';
                 updateUI(); // Update the UI after each move
                 if (game.checkWin()) {
                     setTimeout(() => alert(`${game.currentPlayer} wins!`), 100); // Delayed alert for better UX
