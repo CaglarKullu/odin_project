@@ -74,7 +74,7 @@ saveGameState() {
     }
   
     // Make a move on the board
-    makeMove(row, col) {
+    makeMove(row, col, updateUI) {
         if (this.gameOver || this.board[row][col]) {
             console.log('Invalid move or game over.');
             return;
@@ -88,6 +88,7 @@ saveGameState() {
         if (!this.gameOver && this.aiMode && this.currentPlayer === 'O') {
             setTimeout(() => {
                 this.aiMove();
+                updateUI();
             }, 500);
         }
     }
@@ -155,38 +156,40 @@ saveGameState() {
     }
 
     aiMove() {
-        // Check if AI can win in the next move
+        
+        // Priority 1: Check if AI can win in the next move
         let move = this.findWinningMove('O');
         if (move) {
             this.makeMove(move.row, move.col);
             return;
         }
     
-        // Block X's winning move
+        // Priority 2: Block X's winning move
         move = this.findWinningMove('X');
         if (move) {
             this.makeMove(move.row, move.col);
             return;
         }
     
-        // Try to take the center
+        // Priority 3: Try to take the center if it's free
         if (!this.board[1][1]) {
             this.makeMove(1, 1);
             return;
         }
     
-        // Take opposite corner or any corner
+        // Priority 4: Take opposite corner or any corner
         move = this.takeOppositeCornerOrAnyCorner();
         if (move) {
             this.makeMove(move.row, move.col);
             return;
         }
     
-        // Take any side
+        // Priority 5: Take any side
         move = this.takeAnySide();
         if (move) {
             this.makeMove(move.row, move.col);
         }
+      
     }
 findWinningMove(player) {
     for (let i = 0; i < 3; i++) {
@@ -227,10 +230,24 @@ takeOppositeCornerOrAnyCorner() {
     // If no corners are available, return null
     return null;
 }
+takeAnySide() {
+    const sides = [
+        {row: 0, col: 1},
+        {row: 1, col: 0}, {row: 1, col: 2},
+        {row: 2, col: 1}
+    ];
 
-    
-    
-  }
+    for (const side of sides) {
+        if (!this.board[side.row][side.col]) {
+            return side;
+        }
+    }
+
+    return null; // If no sides are available
+}
+}
+
+
   
   // Usage
   const game = new TicTacToe();
@@ -279,8 +296,14 @@ takeOppositeCornerOrAnyCorner() {
         cell.addEventListener('click', event => {
             const row = parseInt(event.target.dataset.row, 10);
             const col = parseInt(event.target.dataset.col, 10);
-            game.makeMove(row, col);
+            game.makeMove(row, col, updateUI);
             updateUI();
+            if(game.checkWin()) {
+                setTimeout(() => alert(`${game.currentPlayer} wins!`), 100); 
+            }
+            if(game.checkTie() && !game.checkWin()) {
+                setTimeout(() => alert('It\'s a tie!'), 100);
+             }
         });
     });
 
