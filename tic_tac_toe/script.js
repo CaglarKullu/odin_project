@@ -1,9 +1,19 @@
-class TicTacToe {    constructor() {
+
+class TicTacToe {    
+    /**
+     * Initial setup
+     */
+    constructor() {
     // Initial setup
     this.resetGame();
     this.loadGameState(); // Loads game state from local storage or sets default values
 }
 
+    /**
+     * Resets the game state to its initial values.
+     *
+     * @return {void} 
+     */
 resetGame() {
     this.board = [['', '', ''], ['', '', ''], ['', '', '']];
     this.currentPlayer = 'X';
@@ -12,12 +22,22 @@ resetGame() {
     this.scores = { 'X': 0, 'O': 0 };
 }
 
+    /**
+     * Toggles the AI mode of the game.
+     *
+     * @return {void} This function does not return a value.
+     */
 toggleAiMode() {
     this.aiMode = !this.aiMode;
     console.log(`AI Mode: ${this.aiMode ? 'On' : 'Off'}`);
     this.saveGameState();
 }
 
+/**
+ * Loads the game state from the local storage and updates the game properties accordingly.
+ *
+ * @return {void} 
+ */
 loadGameState() {
     const savedState = localStorage.getItem('ticTacToeGameState');
     if (savedState) {
@@ -30,6 +50,11 @@ loadGameState() {
     }
 }
 
+    /**
+     * Saves the current game state to the local storage.
+     *
+     * @return {void} This function does not return anything.
+     */
 saveGameState() {
     const gameState = {
         board: this.board,
@@ -93,6 +118,12 @@ saveGameState() {
         }
     }
     
+    /**
+     * Evaluate the current state of the game, check for a win or tie, update scores, and switch players if necessary.
+     *
+     * @param None
+     * @return None
+     */
     evaluateGameState() {
         if (this.checkWin()) {
             console.log(`${this.currentPlayer} wins!`);
@@ -155,6 +186,10 @@ saveGameState() {
         console.log('Saved game state has been cleared.');
     }
 
+    /**
+     * AI makes a move based on a set of prioritized strategies.
+     *
+     */
     aiMove() {
         
         // Priority 1: Check if AI can win in the next move
@@ -191,6 +226,12 @@ saveGameState() {
         }
       
     }
+    /**
+     * Finds a winning move for the given player on the game board.
+     *
+     * @param {string} player - The player symbol ('X' or 'O').
+     * @return {Object|null} - An object with the coordinates of the winning move if found, or null if no winning move is found.
+     */
 findWinningMove(player) {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -256,6 +297,7 @@ takeAnySide() {
   // For example, game.makeMove(0, 0) for the top-left corner
   // Use game.restart() to restart the game
 
+  
   document.addEventListener('DOMContentLoaded', () => {
     const game = new TicTacToe();
     const aiModeToggle = document.getElementById('toggle-ai-mode');
@@ -277,20 +319,22 @@ takeAnySide() {
         for (let row = 0; row < 3; row++) {
             for (let col = 0; col < 3; col++) {
                 const cell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
-                cell.textContent = game.board[row][col]; // Update each cell with the board state
+                cell.textContent = game.board[row][col]; 
             }
         }
     }
     // Add event listeners to the restart button
     const newGameButton = document.getElementById('new-game-button');
+
     newGameButton.addEventListener('click', () => {
         console.log('New game button clicked');
-        game.restart(); // Restart the game
-        game.clearSavedGameState(); // Clear any saved state
-        updateUI(); // Optional: Ensure the UI is updated immediately
+        game.restart(); 
+        game.clearSavedGameState();
+        updateUI();
         window.location.reload();
     });
 
+    // Add event listeners to the cells
     const cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
         cell.addEventListener('click', event => {
@@ -307,17 +351,18 @@ takeAnySide() {
         });
     });
 
+    // Add event listeners to the restart button
     document.getElementById('restart-button').addEventListener('click', () => {
         game.resetGame();
         game.saveGameState();
-        // Reset the UI as needed
+     
     });
 
     restartButton.addEventListener('click', () => {
         game.restart();
-        updateUI(); // Make sure the UI is updated when the game is restarted
+        updateUI(); 
     });
 
-    // Initial UI update
+   
     updateUI();
 });
