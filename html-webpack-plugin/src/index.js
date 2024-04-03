@@ -1,32 +1,30 @@
 import _ from 'lodash';
 import './style.css';
-import Icon from './icon.png';
 import printMe from './print.js';
+
 
 /**
  * Creates a new component element with inner HTML containing 'Hello webpack'.
  *
  * @return {Element} The newly created component element.
  */
-function component() {
-    const element = document.createElement('div');
-    const btn = document.createElement('button');
-  
-    // Lodash, currently included via a script, is required for this line to work
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Looks like we are in development mode!');
+}
 
-      // Add the image to our existing div.
-      const myIcon = new Image();
-      myIcon.src = Icon;
-      element.appendChild(myIcon);
 
-      // Add the button to our existing div.
-      btn.innerHTML = 'Click me and check the console!';
-      btn.onclick = printMe;
-      element.appendChild(btn);
-  
-    return element;
-  }
-  
-  document.body.appendChild(component());
+ function component() {
+   const element = document.createElement('div');
+  const btn = document.createElement('button');
+
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
+
+  element.appendChild(btn);
+
+   return element;
+ }
+
+ document.body.appendChild(component());
