@@ -1,162 +1,131 @@
-/* Dark theme */
 :root {
-    --main-bg-color: #000a3a; /* Main background color */
-    --main-text-color: #ffffff; /* Main text color */
-    --accent-color: #1976D2; /* Accent color (dark blue) */
-    --cancel-color: #ff0000; /* Cancel color */
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Light theme */
-  .theme-light {
-    --main-bg-color: #ffffff; /* Main background color */
-    --main-text-color: #000000; /* Main text color */
-    --accent-color: #1976D2; /* Accent color (dark blue) */
-  }
-  
-  /* Body styles */
-  body {
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
-    font-size: 16px; /* Base font size */
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Example usage of accent color */
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--accent-color);
-    color: #ffffff;
-    border: none;
-    padding: 0.625rem 1.25rem; /* Equivalent to 10px 20px */
-    border-radius: 0.3125rem; /* Equivalent to 5px */
-    cursor: pointer;
-  }
-  
-  /* Example usage of accent color */
-  a {
-    color: var(--accent-color);
-    text-decoration: none;
-  }
-  
-  /* Example usage of accent color */
-  a:hover {
-    color: #ffffff;
-    background-color: var(--accent-color);
-    padding: 0.3125rem 0.625rem; /* Equivalent to 5px 10px */
-    border-radius: 0.3125rem; /* Equivalent to 5px */
-  }
+  --main-bg-color: #000a3a; /* Dark main background color */
+  --main-text-color: #ffffff; /* Light text color for contrast */
+  --accent-color: #1976D2; /* Vibrant dark blue for interactive elements */
+  --cancel-color: #ff0000; /* Red for deletion actions */
+  --border-radius: 8px; /* Rounded corners for modern look */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  --transition-speed: 0.2s; /* Speed for hover effects */
+  --book-card-bg: #ffffff; /* Background color for book cards */
+  --popup-bg: #ffffff; /* Background color for popup */
+  --card-popup-text-color: #343a40; /* Dark color for text in book cards and popup*/
+  --border-radius: 8px; /* Rounded corners for modern look */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  --transition-speed: 0.2s; /* Speed for hover effects */
+}
 
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--main-bg-color);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 
-    8px 8px 16px rgba(55, 84, 170, 0.15), /* Soft shadow */
-    10px 10px 16px rgba(255, 255, 255, 0.7); /* Highlight */
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
+  font-size: 16px;
+  margin: 0;
+  padding: 20px;
+}
 
-  }
-  
-  /* Media query for preferring dark theme */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --main-bg-color: #000a3a; /* Dark mode background color */
-      --main-text-color: #ffffff; /* Dark mode text color */
-    }
-    .nav {
-        box-shadow: 
-        8px 8px 16px rgba(42, 41, 41, 0.627), /* Soft shadow for dark theme */
-        8px 8px 16px rgba(117, 116, 116, 0.607); /* Highlight for dark theme */
-      background-color: rgb(0, 0, 81); /* Darker background color for better visibility */
-      }
-  }
-  
-  /* Media query for preferring light theme */
-  @media (prefers-color-scheme: light) {
-    :root {
-      --main-bg-color: #ffffff; /* Light mode background color */
-      --main-text-color: #000000; /* Light mode text color */
-    }
-  } 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-bg-color);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+}
 
- #popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border: 2px solid black;
-    z-index: 9999;
-    color: var(--accent-color);
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+#library {
+  display: grid;    
+  grid-template-columns: repeat(4, 1fr); /* This creates 3 columns. */
+  grid-auto-rows: auto; /* Adjust row height based on content. */
+  gap: 1.5rem; /* Adjust gap for spacing between books */
+  padding: 1rem; /* Add padding around the grid if needed */
+  width: 100%;
+}
+
+.book {
+  background-color: var(--book-card-bg); /* Using light background for contrast */
+  color: var(--card-popup-text-color); /* Dark text for readability */
+  border: 1px solid #dee2e6; /* Subtle borders for definition */
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+  width: 100%;
+  max-width: 20rem;
+  margin-left: 1rem;
+}
+
+.book:hover {
+  transform: translateY(-5px); /* Lift effect on hover for interactivity */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.book h3, .book p {
+  margin: 0.5rem 0;
+}
+
+button {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--border-radius);
+  color: white;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+  margin-left: 0.5rem;
+}
+
+button:hover {
+  background-color: darken(var(--accent-color), 10%);
+}
+
+.delete-btn {
+  background-color: var(--cancel-color); /* Enhanced visibility for delete action */
+  margin-left: 10px;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--popup-bg); /* Light background for the popup */
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  z-index: 10;
+  color: var(--card-popup-text-color); /* Ensuring text is readable on light background */
+}
+
+/* Utility classes and additional styles for input elements for clarity */
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.25rem 0 1rem;
+  border: 1px solid #ced4da;
+  border-radius: var(--border-radius);
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments for a seamless experience across devices */
+@media (max-width: 768px) {
+  .nav, .container {
+      padding: 1rem;
   }
 
   #library {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
-    gap: 1rem; /* Space between grid items */
-    margin: 1rem; /* Padding inside the library container */
-    justify-items: center; /* Center the items horizontally */
-    width: 100%; /* Optional: Adjust based on your layout needs */
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .book {
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
-    border: 1px solid var(--accent-color);
-    padding: 20px;
-    margin: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    width: 90%;
-    max-width: 20rem; /* Adjust this value based on your design needs */
-  }
-  
-  .book h3 {
-    margin-top: 0;
-    color: var(--accent-color);
-  }
-  
-  .book p {
-    margin: 5px 0;
-  }
-  
-  .book button {
-    margin-top: 10px;
-    background-color: var(--accent-color);
-    color: #ffffff;
-  }
-  
-  .book:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .book button:hover {
-    background-color: darken(var(--accent-color), 10%);
-  }
-
-  .delete-btn {
-    background-color:var(--cancel-color); /* Red accent for deletion */
-    color: #ffffff;
-    margin-left: 10px; /* Space it a bit from the toggle button */
-  }
