@@ -226,12 +226,12 @@ saveGameState() {
         }
       
     }
-    /**
-     * Finds a winning move for the given player on the game board.
-     *
-     * @param {string} player - The player symbol ('X' or 'O').
-     * @return {Object|null} - An object with the coordinates of the winning move if found, or null if no winning move is found.
-     */
+/**
+ * Find the next move that would result in a win for the given player.
+ *
+ * @param {string} player - The player making the move
+ * @return {object} The row and column for the winning move, or null if there is none
+ */
 findWinningMove(player) {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
