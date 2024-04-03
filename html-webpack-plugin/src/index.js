@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import Icon from './icon.png';
+import printMe from './print.js';
 
 /**
  * Creates a new component element with inner HTML containing 'Hello webpack'.
@@ -9,6 +10,7 @@ import Icon from './icon.png';
  */
 function component() {
     const element = document.createElement('div');
+    const btn = document.createElement('button');
   
     // Lodash, currently included via a script, is required for this line to work
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
@@ -17,8 +19,12 @@ function component() {
       // Add the image to our existing div.
       const myIcon = new Image();
       myIcon.src = Icon;
+      element.appendChild(myIcon);
 
-       element.appendChild(myIcon);
+      // Add the button to our existing div.
+      btn.innerHTML = 'Click me and check the console!';
+      btn.onclick = printMe;
+      element.appendChild(btn);
   
     return element;
   }
