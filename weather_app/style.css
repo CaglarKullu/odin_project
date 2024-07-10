@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+}
+
+#weatherResult {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#weatherResult ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#weatherResult li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+}
