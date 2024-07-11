@@ -9,7 +9,7 @@ const Preview = forwardRef(({ cvData }, ref) => {
       <h2 className="preview-name">{cvData.name}</h2>
       <h4 className="preview-title">Professional Summary</h4>
       <p className="preview-summary">
-        Passionate and goal-driven financial analyst with over 3 years of experience in financial planning, analysis, and projection. Proven ability to support financial operations and analysis of multiple projects.
+        {cvData.summary}
       </p>
 
       <div className="preview-section">

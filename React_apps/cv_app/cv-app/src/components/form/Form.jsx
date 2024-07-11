@@ -19,6 +19,13 @@ function Form({ cvData, setCvData }) {
           onChange={handleChange}
         />
         <input
+        type="text"
+        name="summary"
+        placeholder="Summary"
+        value={cvData.summary}
+        onChange={handleChange}
+      />
+        <input
           type="email"
           name="email"
           placeholder="Email"
