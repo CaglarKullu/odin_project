@@ -1,4 +1,78 @@
+/* Root Variables */
 :root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f9f9f9;
+  --text-color: #333333;
+  --border-color: #dddddd;
+  --link-color: #3498db;
+  --hover-color: #2980b9;
+  --font-family: 'Arial', sans-serif;
+}
 
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .main-container {
+    flex-direction: column;
+  }
 }
 
