@@ -8,9 +8,16 @@ const ExpandableTile = ({ header, formGroups, showAddButton }) => {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
-  const addNewFormGroup = () => {
-    console.log([formGroups, formGroups]);
+  
+  const newList = [formGroups];
+
+  const [list, setList] = useState(newList);
+
+  const handleAdd = () => {
+    setList([...list, formGroups]);
   };
+
+
   return (
     <div className={`expandable-tile ${isExpanded ? 'expanded' : ''}`}>
       <div className="tile-header" onClick={toggleExpand}>
@@ -22,34 +29,39 @@ const ExpandableTile = ({ header, formGroups, showAddButton }) => {
 
       {/* Expandable content */}
       {isExpanded && (
+        
         <div className="tile-content">
           <form>
-            {formGroups.map((group, index) => (
-              <div className="form-group" key={index}>
-                <label htmlFor={group.name}>{group.label}:</label>
-                {group.type === 'textarea' ? (
-                  <textarea
-                    id={group.name}
-                    name={group.name}
-                    defaultValue={group.value}
-                    rows="4"
-                  />
-                ) : (
-                  <input
-                    type={group.type}
-                    id={group.name}
-                    name={group.name}
-                    defaultValue={group.value}
-                  />
-                )}
-              </div>
-            ))}
+          {
+            list.map((formGroups, index) => (
+              formGroups.map((group, index) => (
+                <div className="form-group" key={index}>
+                  <label htmlFor={group.name}>{group.label}:</label>
+                  {group.type === 'textarea' ? (
+                    <textarea
+                      id={group.name}
+                      name={group.name}
+                      defaultValue={group.value}
+                      rows="4"
+                    />
+                  ) : (
+                    <input
+                      type={group.type}
+                      id={group.name}
+                      name={group.name}
+                      defaultValue={group.value}
+                    />
+                  )}
+                </div>
+              ))
+            ))
+          }
 
             {/* Add button logic */}
           {  showAddButton &&          <div className="form-group">
               <button
                 type="button"
-                onClick={() => addNewFormGroup()}
+                onClick={() => handleAdd()}
               >
                 Add
               </button>
