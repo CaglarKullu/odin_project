@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ExpandableTile.css';
+import FormGroup from '../../models/FormGroupData.js';
 
 const ExpandableTile = ({ header, formGroups, showAddButton }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -7,18 +8,9 @@ const ExpandableTile = ({ header, formGroups, showAddButton }) => {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
-
-  const [formGroupsData, setFormGroupsData] = useState(formGroups);
-
-  const addFormGroup = () => {
-    console.log(formGroupsData);
-    // Create a new form group
-    const formGroups = [...formGroupsData];
-    // Add an empty form group
-    formGroups.push({ name: '', label: '', type: 'text', value: '' });
-    setFormGroupsData(formGroups);
+  const addNewFormGroup = () => {
+    console.log([formGroups, formGroups]);
   };
-
   return (
     <div className={`expandable-tile ${isExpanded ? 'expanded' : ''}`}>
       <div className="tile-header" onClick={toggleExpand}>
@@ -57,7 +49,7 @@ const ExpandableTile = ({ header, formGroups, showAddButton }) => {
           {  showAddButton &&          <div className="form-group">
               <button
                 type="button"
-                onClick={() => addFormGroup()}
+                onClick={() => addNewFormGroup()}
               >
                 Add
               </button>
