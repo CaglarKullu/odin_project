@@ -1,0 +1,70 @@
+.expandable-tile {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+  min-width: 500px;
+}
+
+.tile-header {
+  background-color: var(--primary-color);
+  color:var(--text-color);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tile-header h2 {
+  margin: 0;
+}
+
+.expand-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.tile-content {
+  padding: 20px;
+  background-color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical; /* Allows vertical resizing */
+}
+
+.form-group button {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #27ae60;
+}

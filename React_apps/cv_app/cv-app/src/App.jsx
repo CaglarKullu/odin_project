@@ -10,13 +10,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-
-      <div className="main-container">
+      <main className="main-container">
       <Form/>
       <Preview/>
-      </div>
+      </main>
       <Footer />
-
     </div>
   );
 }
