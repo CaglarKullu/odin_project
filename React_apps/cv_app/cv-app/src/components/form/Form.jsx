@@ -10,8 +10,8 @@ const Form = () => {
         <h2>Form</h2>
         <h3>Please enter your details to generate your CV</h3>
         <ExpandableTile header="Personal Information" section="personalInfo" showAddButton={false} />
-        <ExpandableTile header="Work Experience" section="workExperience" showAddButton={true} />
-        <ExpandableTile header="Education" section="education" showAddButton={true} />
+        <ExpandableTile header="Work Experience" section="workExperience" showAddButton={true} showDeleteButton={true}/>
+        <ExpandableTile header="Education" section="education" showAddButton={true}  showDeleteButton={true}/>
       </div>
     </FormProvider>
   );

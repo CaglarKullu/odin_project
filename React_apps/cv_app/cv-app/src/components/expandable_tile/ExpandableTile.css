@@ -68,3 +68,11 @@
 .form-group button:hover {
   background-color: #27ae60;
 }
+
+.form-group .cancel-button{
+  background-color: var(--cancel-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}

@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import { useFormContext } from '../../utils/FormProvider';
 import './ExpandableTile.css';
 
-const ExpandableTile = ({ header, section, showAddButton }) => {
+const ExpandableTile = ({ header, section, showAddButton, showDeleteButton }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { formData, updateFormData } = useFormContext();
+  const { formData, updateFormData, addNewSection, deleteSection } = useFormContext();
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleInputChange = (index, event) => {
+  const handleInputChange = (groupIndex, fieldIndex, event) => {
     const { value } = event.target;
-    updateFormData(section, index, value);
+    updateFormData(section, groupIndex, value, fieldIndex);
+  };
+
+  const handleAddSection = () => {
+    addNewSection(section);
+  };
+
+  const handleDeleteSection = (index) => {
+       deleteSection(section, index);
   };
 
   return (
@@ -27,33 +35,47 @@ const ExpandableTile = ({ header, section, showAddButton }) => {
       {isExpanded && (
         <div className="tile-content">
           <form>
-            {formData[section].map((group, index) => (
-              <div className="form-group" key={index}>
-                <label htmlFor={`${group.name}-${index}`}>{group.label}:</label>
-                {group.type === 'textarea' ? (
-                  <textarea
-                    id={`${group.name}-${index}`}
-                    name={group.name}
-                    value={group.value}
-                    onChange={(e) => handleInputChange(index, e)}
-                    rows="4"
-                  />
-                ) : (
-                  <input
-                    type={group.type}
-                    id={`${group.name}-${index}`}
-                    name={group.name}
-                    value={group.value}
-                    onChange={(e) => handleInputChange(index, e)}
-                  />
+            {formData[section].map((group, groupIndex) => (
+              <div key={groupIndex}>
+                {group.map((field, fieldIndex) => (
+                  <div className="form-group" key={fieldIndex}>
+                    <label htmlFor={`${field.name}-${groupIndex}-${fieldIndex}`}>
+                      {field.label}:
+                    </label>
+                    {field.type === 'textarea' ? (
+                      <textarea
+                        id={`${field.name}-${groupIndex}-${fieldIndex}`}
+                        name={field.name}
+                        value={field.value}
+                        onChange={(e) => handleInputChange(groupIndex, fieldIndex, e)}
+                        rows="4"
+                      />
+                    ) : (
+                      <input
+                        type={field.type}
+                        id={`${field.name}-${groupIndex}-${fieldIndex}`}
+                        name={field.name}
+                        value={field.value}
+                        onChange={(e) => handleInputChange(groupIndex, fieldIndex, e)}
+                      />
+                    )}
+                  </div>
+                ))}
+                {showDeleteButton && (
+                  <div className="form-group">
+                    <button className="cancel-button" type="button" onClick={() => handleDeleteSection(groupIndex)}>
+                      Delete
+                    </button>
+                  </div>
                 )}
               </div>
             ))}
 
             {showAddButton && (
               <div className="form-group">
-                <button type="button">Add</button>
-                <button type="button">Delete</button>
+                <button type="button" onClick={handleAddSection}>
+                  Add
+                </button>
               </div>
             )}
 
