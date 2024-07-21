@@ -6,7 +6,7 @@ const Preview = () => {
   const { formData, updateFormData, addNewSection, deleteSection } = useFormContext();
 
   return (
-    <div className="Preview">
+    <div className="Preview" id='Preview'>
       <h2>Preview</h2>
       
       <div className="preview-section">

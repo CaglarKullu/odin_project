@@ -7,12 +7,13 @@
     padding: 20px;
     border: 1px solid #ccc;
     background: #f9f9f9;
+    min-width:500px;
+    min-height: 680px;
 }
 
   .preview-section {
     margin-bottom: 20px;
-    min-width: 500px;
-    max-width: 705px;
+
     width: 100%;
   }
   
