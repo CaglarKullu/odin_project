@@ -3,7 +3,10 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className="footer">Footer</div>
+    <footer className="footer">
+    <p>© 2024 CTK Software. All rights reserved.</p>
+    <p>Made with ❤️ by Caglar Kullu</p>
+    </footer>
   )
 }
 

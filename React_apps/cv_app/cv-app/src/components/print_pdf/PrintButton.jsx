@@ -7,6 +7,7 @@ import './PrintButton.css';
 const PrintButton = ({ targetId }) => {
   const printPDF = () => {
     const input = document.getElementById(targetId);
+    input.querySelector('h2').textContent = '';
     console.log(input);
     html2canvas(input).then(canvas => {
       const imgData = canvas.toDataURL('image/png');
