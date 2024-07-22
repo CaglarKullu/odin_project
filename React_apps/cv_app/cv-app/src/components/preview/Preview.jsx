@@ -1,57 +1,21 @@
 import React, { useState } from 'react';
 import { useFormContext } from '../../utils/FormProvider';
 import TemplateSelector from './templete_selector/TempleteSelector';
+import TemplateOne from './template_one/TemplateOne';
+import TemplateTwo from './template_two/TemplateTwo';
+import TemplateThree from './template_three/TemplateThree';
 import './Preview.css';
-import './templete_selector/TemplateSelector.css';
 
 const Preview = () => {
   const { formData } = useFormContext();
   const [template, setTemplate] = useState('template1');
 
   return (
-    <div className={`preview ${template}`} id='Preview'>
+    <div id="Preview">
       <TemplateSelector setTemplate={setTemplate} />
-      <h2>Preview</h2>
-      <div id="preview-content">
-        <div className="preview-section">
-          <h3>Personal Info</h3>
-          {formData.personalInfo.map((group, index) => (
-            <div key={index}>
-              {group.map((field, fieldIndex) => (
-                <div key={fieldIndex}>
-                  <strong>{field.label}:</strong> <span>{field.value}</span>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <div className="preview-section">
-          <h3>Work Experience</h3>
-          {formData.workExperience.map((group, index) => (
-            <div key={index}>
-              {group.map((field, fieldIndex) => (
-                <div key={fieldIndex}>
-                  <strong>{field.label}:</strong> <span>{field.value}</span>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <div className="preview-section">
-          <h3>Education</h3>
-          {formData.education.map((group, index) => (
-            <div key={index}>
-              {group.map((field, fieldIndex) => (
-                <div key={fieldIndex}>
-                  <strong>{field.label}:</strong> <span>{field.value}</span>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+      {template === 'template1' && <TemplateOne formData={formData} />}
+      {template === 'template2' && <TemplateTwo formData={formData} />}
+      {template === 'template3' && <TemplateThree formData={formData} />}
     </div>
   );
 };
