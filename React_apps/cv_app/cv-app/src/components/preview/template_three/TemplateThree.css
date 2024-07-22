@@ -1,0 +1,57 @@
+/* Template3.css */
+
+.template3 {
+    background: #e7f7ff;
+    border: 1px solid #007bff;
+    flex-direction: column;
+  }
+  
+  .template3 .header {
+    text-align: center;
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .template3 .sidebar {
+    background: #f9f9f9;
+    padding: 20px;
+    width: 100%;
+    border-bottom: 1px solid #007bff;
+  }
+  
+  .template3 .sidebar h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .template3 .sidebar p,
+  .template3 .sidebar a {
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .template3 .content {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .template3 .content h3 {
+    color: #007bff;
+  }
+  
+  .template3 .content strong {
+    color: #007bff;
+  }
+  
+  .template3 .content .experience,
+  .template3 .content .education {
+    margin-bottom: 20px;
+  }
+  
+  .template3 .content .experience-item,
+  .template3 .content .education-item {
+    margin-bottom: 10px;
+  }
+  
