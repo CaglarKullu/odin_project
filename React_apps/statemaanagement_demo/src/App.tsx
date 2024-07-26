@@ -1,4 +1,4 @@
-import ProviderScope from './caglarpod/src/core/ProviderScope.js';
+import ProviderScope from './caglarpod/src/core/ProviderScope.jsx';
 import CounterComponent from './caglarpod/src/example/CounterComponent';
 import './App.css'
 

@@ -4,7 +4,7 @@ import connectToDevTools from './devtools';
 import { handleError } from '../utils/errorHandler';
 import { throttle, debounce } from '../utils/throttle';
 
-class StateNotifier {
+export class StateNotifier {
   constructor(initialState, persistenceLayer, throttleLimit = 100, debounceDelay = 300) {
     this.state = initialState;
     this.listeners = new Set();
@@ -49,14 +49,17 @@ class StateNotifier {
   }
 
   async setState(newState) {
+    this.state = newState;
+    this.notifyListeners();
     if (this.isBatching) {
       this.pendingState = newState;
       return;
     }
+    this.state = newState;
+    this.notifyListeners();
     this.isBatching = true;
     await this.acquireLock();
     this.applyMiddlewares(newState);
-    this.state = newState;
     if (this.persistenceLayer) {
       try {
         await this.persistenceLayer.save(newState);
@@ -64,6 +67,7 @@ class StateNotifier {
         handleError(error, 'StateNotifier Persistence Save');
       }
     }
+    this.state = newState;
     this.notifyListeners();
     this.releaseLock();
     this.isBatching = false;
@@ -73,6 +77,8 @@ class StateNotifier {
       this.pendingState = null;
       await this.setState(nextState);
     }
+    this.state = newState;
+    this.notifyListeners();
   }
 
   subscribe(listener) {

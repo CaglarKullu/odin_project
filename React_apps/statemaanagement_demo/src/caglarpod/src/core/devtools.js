@@ -14,5 +14,5 @@ const connectToDevTools = notifier => {
     }
   };
   
-  module.exports = connectToDevTools;
+  export default connectToDevTools;
   

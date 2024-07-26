@@ -10,10 +10,13 @@ export default class CounterNotifier extends StateNotifier<CounterState> {
   }
 
   increment() {
-    this.setState({ count: this.state.count + 1 });
+    console.log("increment");
+    console.log(this.state.count);
+    this.setState({ count: this.getState().count + 1 });
   }
 
   decrement() {
-    this.setState({ count: this.state.count - 1 });
+    console.log("decrement");
+    this.setState({ count: this.getState().count - 1 });
   }
 }

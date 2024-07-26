@@ -1,4 +1,4 @@
-const throttle = (func, limit) => {
+export const throttle = (func, limit) => {
     let lastFunc;
     let lastRan;
     return function (...args) {
@@ -17,7 +17,7 @@ const throttle = (func, limit) => {
     };
   };
   
-  const debounce = (func, delay) => {
+  export const debounce = (func, delay) => {
     let debounceTimer;
     return function (...args) {
       clearTimeout(debounceTimer);

@@ -1,4 +1,4 @@
-const memoize = fn => {
+export const memoize = fn => {
     const cache = new Map();
     return (...args) => {
       const key = JSON.stringify(args);
@@ -10,5 +10,5 @@ const memoize = fn => {
     };
   };
   
-  module.exports = memoize;
+  export default memoize;
   
