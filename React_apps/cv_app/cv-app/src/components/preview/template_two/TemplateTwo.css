@@ -1,54 +1,79 @@
-.template2 {
-    display: flex;
-    flex-direction: column;
+/* Template2.css */
 
-  }
-  
-  .template2 .header {
-    text-align: center;
-    padding: 20px;
-    background: #ccc;
-    color: #000;
-    border-radius: 8px 8px 0 0;
-  }
-  
-  .template2 .sidebar {
-    background: #f9f9f9;
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .template2 .sidebar h2 {
-    color: #000;
-    margin-bottom: 10px;
-  }
-  
-  .template2 .sidebar p,
-  .template2 .sidebar a {
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .template2 .content {
-    padding: 20px;
-    width: 100%;
-  }
-  
-  .template2 .content h3 {
-    color: #000;
-  }
-  
-  .template2 .content strong {
-    color: #000;
-  }
-  
-  .template2 .content .experience,
-  .template2 .content .education {
-    margin-bottom: 20px;
-  }
-  
-  .template2 .content .experience-item,
-  .template2 .content .education-item {
-    margin-bottom: 10px;
-  }
-  
+:root {
+  --main-color: #1e90ff;
+  --background-color: #ffffff;
+  --border-color: #e0e0e0;
+  --text-color: #333;
+}
+
+.template2 {
+  display: flex;
+  flex-direction: column;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+}
+
+.template2 .header {
+  text-align: center;
+  background: var(--main-color);
+  color: white;
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template2 .header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.template2 .header p {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
+
+.template2 .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  background: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template2 .section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.template2 .section h3 {
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.template2 .section p,
+.template2 .section a {
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.template2 .experience-item,
+.template2 .education-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.template2 .experience-item:last-child,
+.template2 .education-item:last-child {
+  border-bottom: none;
+}

@@ -1,53 +1,92 @@
 /* Template1.css */
 
+:root {
+  --main-color: #1e90ff;
+  --background-color: #ffffff;
+  --sidebar-background-color: #333;
+  --border-color: #e0e0e0;
+  --text-color: #333;
+  --sidebar-text-color: #ddd;
+}
+
 .template1 {
-    display: flex;
-    height: 100dvh;
-  }
-  
-  .template1 .sidebar {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    width: 250px;
-    border-radius: 8px 0 0 8px;
-  }
-  
-  .template1 .sidebar h2 {
-    color: white;
-  }
-  
-  .template1 .sidebar p,
-  .template1 .sidebar a {
-    color: #ddd;
-    margin-bottom: 10px;
-  }
-  
-  .template1 .sidebar .section {
-    margin-bottom: 20px;
-  }
-  
-  .template1 .content {
-    padding: 20px;
-    width: calc(100% - 250px);
-    border-radius: 0 8px 8px 0;
-  }
-  
-  .template1 .content h3 {
-    color: #333;
-  }
-  
-  .template1 .content strong {
-    color: #007bff;
-  }
-  
-  .template1 .content .experience,
-  .template1 .content .education {
-    margin-bottom: 20px;
-  }
-  
-  .template1 .content .experience-item,
-  .template1 .content .education-item {
-    margin-bottom: 10px;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+}
+
+.template1 .header {
+  flex: 1;
+  text-align: center;
+  background: var(--main-color);
+  color: white;
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template1 .header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.template1 .header p {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
+
+.template1 .sidebar {
+  width: 250px;
+  background: var(--sidebar-background-color);
+  color: var(--sidebar-text-color);
+  padding: 20px;
+  border-radius: 0 0 0 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template1 .sidebar h3 {
+  color: var(--sidebar-text-color);
+  margin-bottom: 10px;
+}
+
+.template1 .sidebar p,
+.template1 .sidebar a {
+  color: var(--sidebar-text-color);
+  margin-bottom: 10px;
+}
+
+.template1 .content {
+  flex: 1;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  background: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template1 .content h3 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--main-color);
+  padding-bottom: 10px;
+}
+
+.template1 .content strong {
+  color: var(--main-color);
+}
+
+.template1 .content .experience-item,
+.template1 .content .education-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.template1 .content .experience-item:last-child,
+.template1 .content .education-item:last-child {
+  border-bottom: none;
+}

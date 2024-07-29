@@ -15,10 +15,10 @@ const Preview = () => {
   return (
     <div id="Preview">
       <TemplateSelector setTemplate={setTemplate} />
-      <ColorSelector />
+      <ColorSelector setColor={setColor} />
       <div className="preview-container" id="preview-content">
-        {template === 'template1' && <TemplateOne formData={formData} />}
-        {template === 'template2' && <TemplateTwo formData={formData} />}
+        {template === 'template1' && <TemplateOne formData={formData} color={color} />}
+        {template === 'template2' && <TemplateTwo formData={formData} color={color} />}
         {template === 'template3' && <TemplateThree formData={formData}  color={color}/>}
       </div>
     </div>

@@ -15,7 +15,7 @@ function App() {
       <Form/>
       <Preview/>
       </main>
-      <PrintButton targetId="Preview" />
+      <PrintButton targetId="preview-content" />
       <Footer />
     </div>
     </FormProvider>
