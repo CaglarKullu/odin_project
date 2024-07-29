@@ -1,4 +1,4 @@
-import { StateNotifier } from "../core/StateNotifier";
+import { StateNotifier } from "../../core/StateNotifier";
 
 interface CounterState {
   count: number;
@@ -17,6 +17,8 @@ export default class CounterNotifier extends StateNotifier<CounterState> {
 
   decrement() {
     console.log("decrement");
-    this.setState({ count: this.getState().count - 1 });
+    if (this.getState().count > 0)
+    this.setState({ 
+      count: this.getState().count - 1 });
   }
 }

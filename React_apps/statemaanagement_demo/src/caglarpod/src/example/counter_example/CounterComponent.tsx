@@ -1,4 +1,4 @@
-import { useStateNotifier } from "../core/useStateNotifier";
+import { useStateNotifier } from "../../core/useStateNotifier";
 import CounterNotifier from "./CounterNotifier";
 
 interface CounterState {
