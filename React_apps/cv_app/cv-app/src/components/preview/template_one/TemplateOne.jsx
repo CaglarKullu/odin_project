@@ -16,12 +16,11 @@ const TemplateOne = ({ formData, color }) => {
           <p>Phone: {formData.personalInfo[0][2].value}</p>
           <p>Email: {formData.personalInfo[0][3].value}</p>
           <p>LinkedIn: {formData.personalInfo[0][4]?.value}</p>
+          <p>Github: {formData.personalInfo[0][5]?.value}</p>
         </div>
         <div className="section">
           <h3>Skills</h3>
-          {formData.skills?.map((skill, index) => (
-            <p key={index}>{skill.value}</p>
-          ))}
+          <p>{formData.personalInfo[0][6].value}</p>
         </div>
       </div>
       <div className="content">

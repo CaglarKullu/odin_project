@@ -10,7 +10,10 @@ export const FormProvider = ({ children }) => {
       new FormGroup('name', 'Name', 'text', ''),
       new FormGroup('summary', 'Professional Summary', 'textarea', ''),
       new FormGroup('email', 'Email', 'email', ''),
-      new FormGroup('phone', 'Phone', 'tel', '')
+      new FormGroup('phone', 'Phone', 'tel', ''),
+      new FormGroup('linkedin', 'LinkedIn', 'text', ''),
+      new FormGroup('github', 'GitHub', 'text', ''),
+      new FormGroup('skills', 'Skills', 'textarea', '')
       ]
     ],
     workExperience: [
@@ -56,7 +59,10 @@ export const FormProvider = ({ children }) => {
         new FormGroup('name', 'Name', 'text', ''),
         new FormGroup('summary', 'Professional Summary', 'textarea', ''),
         new FormGroup('email', 'Email', 'email', ''),
-        new FormGroup('phone', 'Phone', 'tel', '')
+        new FormGroup('phone', 'Phone', 'tel', ''),
+        new FormGroup('linkedin', 'LinkedIn', 'text', ''),
+        new FormGroup('github', 'GitHub', 'text', ''),
+        new FormGroup('skills', 'Skills', 'textarea', '')
       ],
       workExperience: [
         new FormGroup('jobTitle', 'Job Title', 'text', ''),
