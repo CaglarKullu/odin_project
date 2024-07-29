@@ -1,34 +1,28 @@
-import React, { forwardRef } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faGraduationCap, faBriefcase, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import { useFormContext } from '../../utils/FormProvider';
+import TemplateSelector from './templete_selector/TempleteSelector';
+import TemplateOne from './template_one/TemplateOne';
+import TemplateTwo from './template_two/TemplateTwo';
+import TemplateThree from './template_three/TemplateThree';
 import './Preview.css';
+import ColorSelector from './color_selector/ColorSelector';
 
-const Preview = forwardRef(({ cvData }, ref) => {
+const Preview = () => {
+  const { formData } = useFormContext();
+  const [template, setTemplate] = useState('template1');
+  const [color, setColor] = useState('#1e90ff');
+
   return (
-    <div ref={ref} className="preview-container">
-      <h2 className="preview-name">{cvData.name}</h2>
-      <h4 className="preview-title">Professional Summary</h4>
-      <p className="preview-summary">
-        {cvData.summary}
-      </p>
-
-      <div className="preview-section">
-        <h3 className="preview-section-title"><FontAwesomeIcon icon={faEnvelope} /> Contact Information</h3>
-        <p><FontAwesomeIcon icon={faPhone} /> {cvData.phone}</p>
-        <p><FontAwesomeIcon icon={faEnvelope} /> {cvData.email}</p>
-      </div>
-
-      <div className="preview-section">
-        <h3 className="preview-section-title"><FontAwesomeIcon icon={faBriefcase} /> Experience</h3>
-        <p>{cvData.experience}</p>
-      </div>
-
-      <div className="preview-section">
-        <h3 className="preview-section-title"><FontAwesomeIcon icon={faGraduationCap} /> Education</h3>
-        <p>{cvData.education}</p>
+    <div id="Preview">
+      <TemplateSelector setTemplate={setTemplate} />
+      <ColorSelector />
+      <div className="preview-container" id="preview-content">
+        {template === 'template1' && <TemplateOne formData={formData} />}
+        {template === 'template2' && <TemplateTwo formData={formData} />}
+        {template === 'template3' && <TemplateThree formData={formData}  color={color}/>}
       </div>
     </div>
   );
-});
+};
 
 export default Preview;

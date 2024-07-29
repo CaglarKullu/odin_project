@@ -1,0 +1,85 @@
+/* Template3.css */
+
+:root {
+  --main-color: #1e90ff;
+}
+
+.template3 {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.template3 .header {
+  text-align: center;
+  background: var(--main-color);
+  color: white;
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template3 .header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.template3 .header p {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
+
+.template3 .sidebar {
+  background: #f8f9fa;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template3 .sidebar h3 {
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.template3 .sidebar p,
+.template3 .sidebar a {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.template3 .content {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template3 .content h3 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--main-color);
+  padding-bottom: 10px;
+}
+
+.template3 .content strong {
+  color: var(--main-color);
+}
+
+.template3 .content .experience-item,
+.template3 .content .education-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.template3 .content .experience-item:last-child,
+.template3 .content .education-item:last-child {
+  border-bottom: none;
+}

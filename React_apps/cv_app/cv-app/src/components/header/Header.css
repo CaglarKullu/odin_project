@@ -1,0 +1,13 @@
+.Header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: larger;
+    border-bottom: 3px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  } 
+

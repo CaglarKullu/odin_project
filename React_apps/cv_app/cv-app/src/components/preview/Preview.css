@@ -1,73 +1,54 @@
+/* Common styles for all previews */
+
+.Preview{
+  display: flex;
+  margin: 20px;
+  padding: 20px;
+  flex: auto;
+}
+
 .preview-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    margin-top: 20px;
-    color: #333;
-  }
-  
-  .preview-name {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #007bff;
-  }
-  
-  .preview-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .preview-summary {
-    font-size: 1em;
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-  
-  .preview-section {
-    margin-bottom: 20px;
-  }
-  
-  .preview-section-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #007bff;
-    display: flex;
-    align-items: center;
-  }
-  
-  .preview-section-title .fa-icon {
-    margin-right: 10px;
-  }
-  
-  .preview-section p {
-    font-size: 1em;
-    margin-bottom: 5px;
-    line-height: 1.4;
-  }
-  
-  @media (max-width: 768px) {
-    .preview-container {
-      width: 100%;
-      margin: 10px;
-      padding: 15px;
-    }
-  
-    .preview-name {
-      font-size: 1.5em;
-    }
-  
-    .preview-title {
-      font-size: 1.2em;
-    }
-  
-    .preview-section-title {
-      font-size: 1em;
-    }
-  
-    .preview-section p {
-      font-size: 0.9em;
-    }
-  }
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  min-width: 500px;
+  min-height: 680px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.preview-container h2 {
+  margin-top: 0;
+  text-align: left;
+  color: #333;
+  font-size: 24px;
+}
+
+.preview-section {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.preview-section h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #007bff;
+}
+
+.preview-section div {
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.preview-section strong {
+  display: inline-block;
+  font-weight: 600;
+}

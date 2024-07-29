@@ -1,60 +1,17 @@
-import React from "react";
-import "./Form.css";
+import React from 'react';
+import ExpandableTile from './expandable_tile/ExpandableTile';
+import './Form.css';
 
-function Form({ cvData, setCvData }) {
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCvData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
+const Form = () => {
   return (
-    <div className="form-container">
-      <h2>Enter your details</h2>
-      <form>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={cvData.name}
-          onChange={handleChange}
-        />
-        <input
-        type="text"
-        name="summary"
-        placeholder="Summary"
-        value={cvData.summary}
-        onChange={handleChange}
-      />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={cvData.email}
-          onChange={handleChange}
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Phone"
-          value={cvData.phone}
-          onChange={handleChange}
-        />
-        <textarea
-          name="education"
-          placeholder="Education"
-          value={cvData.education}
-          onChange={handleChange}
-        />
-        <textarea
-          name="experience"
-          placeholder="Experience"
-          value={cvData.experience}
-          onChange={handleChange}
-        />
-        <button type="button">Submit</button>
-      </form>
-    </div>
+      <div className="Form">
+        <h2>Form</h2>
+        <h3>Please enter your details to generate your CV</h3>
+        <ExpandableTile header="Personal Information" section="personalInfo" showAddButton={false} />
+        <ExpandableTile header="Work Experience" section="workExperience" showAddButton={true} showDeleteButton={true}/>
+        <ExpandableTile header="Education" section="education" showAddButton={true}  showDeleteButton={true}/>
+      </div>
   );
-}
+};
 
 export default Form;
