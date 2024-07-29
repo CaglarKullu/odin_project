@@ -7,18 +7,24 @@ export default class CounterNotifier extends StateNotifier<CounterState> {
   state: any;
   constructor() {
     super({ count: 0 });
+    this.applyMiddleware(this.loggerMiddleware);
   }
 
   increment() {
-    console.log("increment");
-    console.log(this.state.count);
     this.setState({ count: this.getState().count + 1 });
   }
 
   decrement() {
-    console.log("decrement");
     if (this.getState().count > 0)
     this.setState({ 
       count: this.getState().count - 1 });
   }
+  loggerMiddleware = (next: (state: CounterState) => void, state: CounterState) => {
+    const previousState = this.state;
+    console.log('Previous State:', previousState);
+    next(state);
+    const nextState = this.state;
+    console.log('Next State:', nextState);
+  };
 }
+

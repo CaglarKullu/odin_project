@@ -49,17 +49,21 @@ export class StateNotifier {
   }
 
   async setState(newState) {
+
+    this.applyMiddlewares(newState, (finalState) => {
+      this.state = finalState;
+      this.notifyListeners();
+    });
+
+
     this.state = newState;
     this.notifyListeners();
-    if (this.isBatching) {
-      this.pendingState = newState;
-      return;
-    }
-    this.state = newState;
-    this.notifyListeners();
+
+
+
     this.isBatching = true;
     await this.acquireLock();
-    this.applyMiddlewares(newState);
+
     if (this.persistenceLayer) {
       try {
         await this.persistenceLayer.save(newState);
@@ -140,20 +144,19 @@ export class StateNotifier {
 
   applyMiddleware(middleware) {
     this.middlewares.push(middleware);
+    this.applyMiddlewares(this.state, this.notifyListeners.bind(this));
   }
 
-  applyMiddlewares(state) {
-    let next = newState => {
-      this.state = newState;
-    };
+  applyMiddlewares(state, next) {
+    let nextMiddleware = next;
     for (let i = this.middlewares.length - 1; i >= 0; i--) {
       const middleware = this.middlewares[i];
-      const oldNext = next;
-      next = newState => {
+      const oldNext = nextMiddleware;
+      nextMiddleware = (newState) => {
         middleware(oldNext, newState);
       };
     }
-    next(state);
+    nextMiddleware(state);
   }
 }
 

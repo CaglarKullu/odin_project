@@ -12,7 +12,6 @@ const CounterComponent: React.FC = () => {
   const state = useStateNotifier<CounterState>(counterNotifier);
 
   return (
-    console.log(state.count),
     <div>
       <h2>Counter: {state.count}</h2>
       <button onClick={() => counterNotifier.increment()}>Increment</button>

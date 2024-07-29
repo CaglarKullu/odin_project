@@ -7,6 +7,8 @@ export interface PersistenceLayer<T> {
 
 type Selector<T, U> = (state: T) => U;
 
+type Middleware<T> = (next: (state: T) => void, state: T) => void;
+
 export declare class StateNotifier<T> {
   constructor(
     initialState: T,
@@ -22,5 +24,5 @@ export declare class StateNotifier<T> {
   subscribeToSelector<U>(selector: Selector<T, U>, listener: (selectedState: U) => void): () => void;
   subscribeToDerivedState<U>(name: string, selector: Selector<T, U>, listener: (derivedState: U) => void): () => void;
   memoize<R>(fn: (...args: any[]) => R): (...args: any[]) => R;
-  applyMiddleware(middleware: (next: (state: T) => void, state: T) => void): void;
+  applyMiddleware(middleware: Middleware<T>): void;
 }
