@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { memoize } from '../utils/memoize';
 
-const useStateSelector = (notifier, selector) => {
+export const useStateSelector = (notifier, selector) => {
   const memoizedSelector = memoize(selector);
   const [selectedState, setSelectedState] = useState(memoizedSelector(notifier.getState()));
 

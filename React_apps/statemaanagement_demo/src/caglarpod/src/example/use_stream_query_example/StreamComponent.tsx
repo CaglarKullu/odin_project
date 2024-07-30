@@ -2,7 +2,6 @@ import React from 'react';
 import { useStreamQuery } from '../../core/useStreamQuery.js';
 import { createSimpleObservable } from './simpleStream';
 
-// Define the StreamComponent
 const StreamComponent: React.FC = () => {
   const { data, error, isLoading } = useStreamQuery(createSimpleObservable());
 
