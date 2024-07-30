@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { handleError } from '../utils/errorHandler';
 
-const useStreamQuery = observable => {
+export const useStreamQuery = observable => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

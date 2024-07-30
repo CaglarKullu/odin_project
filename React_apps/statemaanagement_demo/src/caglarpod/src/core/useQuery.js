@@ -1,7 +1,7 @@
 import { useQuery as useReactQuery } from 'react-query';
 import { handleError } from '../utils/errorHandler';
 
-const useQuery = (key, queryFn, options) => {
+export const useQuery = (key, queryFn, options) => {
   return useReactQuery(key, queryFn, {
     ...options,
     onError: error => {
