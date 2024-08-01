@@ -1,4 +1,4 @@
-import { StateNotifier } from '../../core/StateNotifier';
+import {StateNotifier } from 'caglarpod/src/core/StateNotifier';
 
 interface Item {
   id: number;
